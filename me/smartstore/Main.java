@@ -30,9 +30,7 @@ public class Main {
     public static void main(String[] args) {
         ParameterMenu.allGroups.initialize();
         System.out.println("===========================================");
-        System.out.println(" Title : SmartStore Customer Segmentation");
-        System.out.println(" Release Date : 22.10.07");
-        System.out.println(" Copyright 2022 Eunbin All rights reserved.");
+        System.out.println(" 스마트 스토어");
         System.out.println("===========================================");
         System.out.println("");
 
@@ -47,14 +45,14 @@ public class Main {
                     SummaryMenu.manageSummaryMenu();
                 } else {
                     if (choice == 4) {
-                        System.out.println("\nProgram Finished.");
+                        System.out.println("\n프로그램 끝.");
                         break;
                     }
 
-                    System.out.println("\nInvalid Input. Please try again.");
+                    System.out.println("\n주어진 입력값은 존재하지 않습니다 다시 입력해주세요.");
                 }
             } catch (InputMismatchException var2) {
-                System.out.println("\nInvalid Type for Input. Please try again.");
+                System.out.println("\n주어진 입력값은 존재하지 않습니다 다시 입력해주세요");
                 Menu.scanner.next();
             }
         }

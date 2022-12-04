@@ -41,7 +41,7 @@ public class CustomerMenu extends Menu {
         label46:
         for(int i = 0; i < size; ++i) {
             Customer customer = new Customer();
-            System.out.println("\n====== Customer " + (i + 1) + " Info. ======");
+            System.out.println("\n====== 고객 " + (i + 1) + " 정보. ======");
 
             while(true) {
                 while(true) {

@@ -21,8 +21,8 @@ public class ParameterMenu extends Menu {
         while(true) {
             try {
                 System.out.println();
-                System.out.println("** Press 'end', if you want to exit! **");
-                System.out.print("Which group (GENERAL, VIP, VVIP)? ");
+                System.out.println("** 끝내고 싶으면 'end'을 눌러주세요 **");
+                System.out.print("어떤그룹을 찾으시나요?(GENERAL, VIP, VVIP)? ");
                 String choice = Menu.scanner.next().toUpperCase();
                 if (choice == null) {
                     throw new NullPointerException();
@@ -44,11 +44,11 @@ public class ParameterMenu extends Menu {
 
                 throw new InputRangeException();
             } catch (NullPointerException var2) {
-                System.out.println("Null Input. Please input something.");
+                System.out.println("공란없이 입력해주세요.");
             } catch (InputEmptyException var3) {
-                System.out.println("Empty Input. Please input something.");
+                System.out.println("공백없이 입력해주세요.");
             } catch (InputRangeException var4) {
-                System.out.println("Invalid Input. Please try again.");
+                System.out.println("범위값 안으로 입력해주세요");
             }
         }
     }
@@ -58,22 +58,22 @@ public class ParameterMenu extends Menu {
             try {
                 System.out.println();
                 System.out.println("==============================");
-                System.out.println(" 1. Set Parameter");
-                System.out.println(" 2. View Parameter");
-                System.out.println(" 3. Update Parameter");
-                System.out.println(" 4. Back");
+                System.out.println(" 1. 설정 하기 ");
+                System.out.println(" 2. 설정값 보기");
+                System.out.println(" 3. 설정값 변경");
+                System.out.println(" 4. 뒤로가기");
                 System.out.println("==============================");
-                System.out.print("Choose One: ");
+                System.out.print("선택번호 : ");
                 int choice = Integer.parseInt(Menu.scanner.next());
                 if (choice >= 1 && choice <= 4) {
                     return choice;
                 }
 
                 throw new InputRangeException();
-            } catch (NumberFormatException var1) {
-                System.out.println("Invalid Type for Input. Please try again.");
+            } catch (NumberFormatException var1 ) {
+                System.out.println("유효하지 않은 숫자입니다. 다시 입력해주세요.");
             } catch (InputRangeException var2) {
-                System.out.println("Invalid Input. Please try again.");
+                System.out.println("범위 안값으로 입력해주세요.");
             }
         }
     }
@@ -92,7 +92,7 @@ public class ParameterMenu extends Menu {
                     return;
                 }
 
-                System.out.println("\nInvalid Input. Please try again.");
+                System.out.println("\n유효하지 않은 숫자입니다. 다시 입력해주세요.");
             }
         }
     }
@@ -100,7 +100,7 @@ public class ParameterMenu extends Menu {
     public static void setParameter() {
         while(true) {
             String strGroup = chooseGroup().toUpperCase();
-            if (strGroup.equals("END")) {
+            if (strGroup.equals("끝")) {
                 return;
             }
 
@@ -108,13 +108,13 @@ public class ParameterMenu extends Menu {
             try {
                 groupType = GroupType.valueOf(strGroup);
             } catch (IllegalArgumentException var5) {
-                System.out.println("\nInvalid Input. Please try again.");
+                System.out.println("\n 유효하지 않은 숫자입니다. 다시 입력해주세요.");
                 continue;
             }
 
             var grp = allGroups.find(groupType);
             if (grp != null && grp.getParam() != null) {
-                System.out.println("\n" + strGroup + " group already exists.");
+                System.out.println("\n" + strGroup + " 이미 존재한 그룹입니다.");
                 System.out.println("\n" + grp);
             } else {
                 Parameter param = new Parameter();
